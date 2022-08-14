@@ -1,13 +1,17 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   {{ $css := resources.Get "css/style.css" | resources.PostCSS }}
+   {{ $css := resources.Get "css/style.css" | resources.PostCSS (dict "config" "./postcss.config.js") }}
+   {{ $darkSyntax := resources.Get "css/syntax-dark.css" }}
+   {{ $lightSyntax := resources.Get "css/syntax-light.css" }}
    {{ if hugo.IsProduction }}
       {{ $css = $css | minify | fingerprint | resources.PostProcess }}
+      {{ $darkSyntax = $darkSyntax | minify | fingerprint  }}
+      {{ $lightSyntax = $lightSyntax | minify | fingerprint  }}
    {{ end }}
    <link rel="stylesheet" type="text/css" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}">
-   <link rel="stylesheet" type="text/css" href="/css/syntax-light.css" media="screen and (prefers-color-scheme: light)" />
-   <link rel="stylesheet" type="text/css" href="/css/syntax-dark.css" media="screen and (prefers-color-scheme: dark)" />
+   <link rel="stylesheet" type="text/css" href="{{ $lightSyntax.Permalink }}" integrity="{{ $lightSyntax.Data.Integrity }}" media="screen and (prefers-color-scheme: light)" />
+   <link rel="stylesheet" type="text/css" href="{{ $darkSyntax.Permalink }}" integrity="{{ $darkSyntax.Data.Integrity }}" media="screen and (prefers-color-scheme: dark)" />
    {{ $title := print .Site.Title " | " .Title }}
    {{ if .IsHome }}
       {{ $title = .Site.Title }}
