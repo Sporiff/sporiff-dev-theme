@@ -1,0 +1,6 @@
+{{ $favicon32 := print .Site.Params.favicon32 }}
+{{ $favicon16 := print .Site.Params.favicon16 }}
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32 }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16 }}">
+<link rel="manifest" href="/site.webmanifest">

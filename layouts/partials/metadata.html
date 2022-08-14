@@ -1,0 +1,19 @@
+<div class="byline">
+   <div class="avatar">
+      <img src="{{ .Site.Params.profilePicture }}" alt="Avatar for {{ .Site.Params.author }}" />
+   </div>
+   <div class="author">
+      {{ .Site.Params.author }}
+   </div>
+   {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+   {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+   <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+</div>
+{{ with .Params.tags }}
+<aside class="tags">
+   {{ range . }}
+   {{ $href := print (absURL "tags/") (urlize .) }}
+   <a class="tag" href="{{ $href }}">{{ . }}</a>
+   {{ end }}
+</aside>
+{{ end }}
