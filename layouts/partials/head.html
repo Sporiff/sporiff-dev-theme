@@ -1,7 +1,11 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" type="text/css" href="/css/style.css">
+   {{ $css := resources.Get "css/style.css" | resources.PostCSS }}
+   {{ if hugo.IsProduction }}
+      {{ $css = $css | minify | fingerprint | resources.PostProcess }}
+   {{ end }}
+   <link rel="stylesheet" type="text/css" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}">
    <link rel="stylesheet" type="text/css" href="/css/syntax-light.css" media="screen and (prefers-color-scheme: light)" />
    <link rel="stylesheet" type="text/css" href="/css/syntax-dark.css" media="screen and (prefers-color-scheme: dark)" />
    {{ $title := print .Site.Title " | " .Title }}
