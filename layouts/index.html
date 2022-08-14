@@ -1,3 +1,39 @@
 {{ define "main" }}
 <h1 class="title">{{ .Site.Title }}</h1>
+<section>
+  <h2>Recent posts</h2>
+  <section class="latest">
+    {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+    {{ range first 4 $pages }}
+    <a class="featured with-image 1" href="{{ .RelPermalink }}">
+      <div
+        class="featured-image"
+        style="background-image: url('{{ .Params.featured_image }}')"
+      ></div>
+      <header>
+        <h2>{{ .Title }}</h2>
+        {{ if .Params.summary }}
+        <h3>{{ .Params.summary }}</h3>
+        {{ else }}
+        <h3>{{ .Summary }}</h3>
+        {{ end }}
+        <div class="byline">
+          <div class="avatar">
+            <img
+              src="{{ .Site.Params.profilePicture }}"
+              alt="Avatar for {{ .Site.Params.author }}"
+            />
+          </div>
+          <div class="author">{{ .Site.Params.author }}</div>
+          {{ $dateTime := .PublishDate.Format "2006-01-02" }} {{ $dateFormat :=
+          .Site.Params.dateFormat | default "Jan 2, 2006" }}
+          <time datetime="{{ $dateTime }}"
+            >{{ .PublishDate.Format $dateFormat }}</time
+          >
+        </div>
+      </header>
+    </a>
+    {{ end }}
+  </section>
+</section>
 {{ end }}
