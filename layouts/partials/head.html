@@ -16,6 +16,11 @@
    {{ if .IsHome }}
       {{ $title = .Site.Title }}
    {{ end }}
+   {{ $description := print .Summary }}
+   {{ if not .Summary }}
+      {{ $description = .Site.Params.description }}
+   {{ end }}
+   <meta name="description" content="{{ $description }}">
    <title>{{ $title }}</title>
    {{ partial "favicon.html" }}
    {{ template "_internal/twitter_cards.html" . }}
