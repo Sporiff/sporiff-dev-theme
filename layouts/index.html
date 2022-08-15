@@ -6,10 +6,9 @@
     {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
     {{ range first 4 $pages }}
     <a class="featured with-image 1" href="{{ .RelPermalink }}">
-      <div
-        class="featured-image"
-        style="background-image: url('{{ index .Params.images 0 }}')"
-      ></div>
+      <div class="featured-image">
+         <img src="{{ index .Params.images 0 }}" alt="" loading="lazy" />
+      </div>
       <header>
         <h2>{{ .Title }}</h2>
         {{ if .Params.summary }}
