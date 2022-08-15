@@ -216,7 +216,6 @@ aside.outdated {
   font-family: var(--ui-font);
   font-size: 0.8rem;
   left: 50%;
-  opacity: 0.8;
   padding: 0.5em 1em;
   position: relative;
   text-align: center;
@@ -259,7 +258,6 @@ html {
 }
 a {
   color: var(--accent-color);
-  opacity: 0.8;
   transition: opacity 250ms ease;
 }
 a:hover,
@@ -305,14 +303,7 @@ h6 {
 h1 {
   line-height: 1em;
 }
-h3,
-h4,
-h5 {
-  opacity: 0.8;
-}
-h6 {
-  opacity: 0.67;
-}
+
 header h1 {
   font-size: 2em;
   margin-top: 1em;
@@ -322,7 +313,6 @@ header h1 + h2 {
   font-size: 1.2rem;
   font-weight: normal;
   margin-top: 0.25em;
-  opacity: 0.5;
 }
 header h2 {
   font-size: 1.5em;
@@ -334,7 +324,6 @@ header h2 + h3 {
   font-weight: normal;
   margin-top: -1.5em;
   margin-bottom: 1em;
-  opacity: 0.5;
 }
 blockquote {
   max-width: var(--content-width);
@@ -353,7 +342,6 @@ aside blockquote {
   line-height: 1.4em;
   border: none;
   margin: 2em auto;
-  opacity: 0.8;
   padding: 0 1em;
 }
 blockquote .attribution {
@@ -402,7 +390,7 @@ kbd {
   margin-right: 0.5em;
   overflow: hidden;
   position: relative;
-  display:flex;
+  display: flex;
   width: 48px;
 }
 .byline .avatar::before {
@@ -436,17 +424,12 @@ kbd {
 }
 .byline .name {
   font-weight: 600;
-  opacity: 0.8;
-}
-.byline .description {
-  opacity: 0.67;
 }
 .byline .description::before {
   content: " | ";
 }
 .byline time,
 .byline .read-time {
-  opacity: 0.8;
   font-size: 0.9em;
   line-height: 1em;
 }
@@ -573,7 +556,6 @@ code {
 .featured .excerpt span {
   font-family: var(--ui-font);
   font-size: 0.8em;
-  opacity: 0.75;
 }
 .featured .featured-image {
   background-color: var(--silver-100);
@@ -713,7 +695,6 @@ figure figcaption {
   font-family: var(--ui-font);
   font-size: 0.8rem;
   margin: 1em auto 4em;
-  opacity: 0.67;
   text-align: center;
 }
 figure.quarter img,
@@ -995,7 +976,6 @@ body > header .secondary #results-container li a #title {
 body > header .secondary #results-container li a #description {
   font-size: 0.8em;
   grid-column-start: 2;
-  opacity: 0.8;
 }
 body > header .secondary #results-container li a:hover {
   background-color: var(--secondary-bg-color);
@@ -1067,9 +1047,6 @@ aside.tags {
   line-height: 1.25;
   margin: 0;
 }
-.twitter-tweet header .account p {
-  opacity: 0.75;
-}
 .twitter-tweet header .logo {
   height: 1.25em;
   margin: 0;
@@ -1083,7 +1060,6 @@ aside.tags {
 .twitter-tweet footer a {
   display: flex;
   justify-content: space-between;
-  opacity: 0.6;
 }
 @media (prefers-color-scheme: dark) {
   .twitter-tweet {

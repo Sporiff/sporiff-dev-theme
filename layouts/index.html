@@ -7,7 +7,7 @@
     {{ range first 4 $pages }}
     <a class="featured with-image 1" href="{{ .RelPermalink }}">
       <div class="featured-image">
-        <img src="{{ index .Params.images 0 }}" alt="" loading="lazy" />
+        <img src="{{ index .Params.images 0 }}" alt="" />
       </div>
       <header>
         <h2>{{ .Title }}</h2>
@@ -21,7 +21,8 @@
             <img
               src="{{ .Site.Params.profilePicture }}"
               alt="Avatar for {{ .Site.Params.author }}"
-              loading="lazy"
+              width="48px"
+              height="48px"
             />
           </div>
           <div class="author">{{ .Site.Params.author }}</div>
