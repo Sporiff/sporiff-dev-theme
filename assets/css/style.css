@@ -402,7 +402,7 @@ kbd {
   margin-right: 0.5em;
   overflow: hidden;
   position: relative;
-  vertical-align: middle;
+  display:flex;
   width: 48px;
 }
 .byline .avatar::before {
