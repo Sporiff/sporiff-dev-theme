@@ -7,7 +7,11 @@
     {{ range first 4 $pages }}
     <a class="featured with-image 1" href="{{ .RelPermalink }}">
       <div class="featured-image">
-        <img src="{{ index .Params.images 0 }}" alt="" />
+        {{ with .Params.images }}
+          <img src="{{ index . 0 }}" alt="" />
+        {{ else }}
+          <img src="https://rootkey.fra1.cdn.digitaloceanspaces.com/images/placeholder.webp" alt="" />
+        {{ end }}
       </div>
       <header>
         <h2>{{ .Title }}</h2>
