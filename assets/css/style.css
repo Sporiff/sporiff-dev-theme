@@ -96,6 +96,7 @@ body > footer {
   justify-content: space-between;
   overflow-x: auto;
   padding: 0 1rem;
+  min-height: calc(100vh - 7em);
 }
 body > footer ul {
   display: inline-block;
