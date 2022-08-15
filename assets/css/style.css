@@ -666,7 +666,7 @@ figure {
   text-align: center;
 }
 
-figure.about-me img {
+.about-me {
   width: 25%;
   border-radius: 50%;
 }

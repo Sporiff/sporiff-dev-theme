@@ -1,0 +1,25 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<section>
+   <article>
+      <figure class="about-me">
+         <img alt="A pixel art representation of me" src="https://rootkey.fra1.cdn.digitaloceanspaces.com/images/avatar.png" loading="lazy">
+      </figure>
+      <br />
+      {{ .Content}}
+   </article>
+   <section class="social">
+      <h2>Find me online</h2>
+      <div class="share">
+         {{ range $item := .Site.Params.socialIcons }}
+            <a href="{{ $item.url }}" target="_blank" title="{{ $item.name }}">
+               <picture>
+                  <source srcset="{{ $item.darkIcon }}" media="(prefers-color-scheme: dark)">
+                  <img src="{{ $item.lightIcon }}" alt="" loading="lazy" />
+               </picture>
+            </a>
+         {{ end }}
+      </div>
+   </section>
+</section>
+{{ end }}

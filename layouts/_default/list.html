@@ -1,20 +1,28 @@
 {{ define "main" }}
-<body>
+   <body>
       <h1>{{ .Title }}</h1>
       {{ range (.Paginate .RegularPagesRecursive).Pages }}
-      <a class="entry" href="{{ .RelPermalink }}">
-         <section>
-            <h2 class="title">{{ .Title }}</h3>
-            {{ $dateTime := .PublishDate.Format "2006-01-02" }}
-            {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-            <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
-            {{ if .Params.summary }}
-               <p>{{ .Params.summary }}</p>
-            {{ else }}
-               <p>{{ .Summary }}</p>
-            {{ end }}
-         </section>
-      </a>
+         <a class="entry" href="{{ .RelPermalink }}">
+            <section>
+               <h2 class="title">{{ .Title }}</h3>
+               {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+               {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+               <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+               {{ if .Params.summary }}
+                  <p>{{ .Params.summary }}</p>
+               {{ else }}
+                  <p>{{ .Summary }}</p>
+               {{ end }}
+            </section>
+         </a>
       {{ end }}
-</body>
+      <nav class="pagination">
+      {{ if .Paginator.HasPrev }}
+         <a class="previous" href="{{ .Paginator.Prev.URL }}">Newer</a>
+      {{ end }}
+      {{ if .Paginator.HasNext }}
+         <a class="next" href="{{ .Paginator.Next.URL }}">Older</a>
+      {{ end }}
+      </nav>
+   </body>
 {{ end }}
